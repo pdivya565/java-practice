@@ -5,6 +5,7 @@ pipeline {
     tools {
 
         maven "mvn_project"
+        jdk "java_home"
     }
 
     
@@ -15,6 +16,16 @@ pipeline {
 
                 sh "mvn -Dmaven.test.failure.ignore=true clean package"
                 
+            }
+        }
+        stage('Build') {
+            steps {
+                sh "javac App.java"
+            }
+        }
+        stage('Run') {
+            steps {
+                sh "java App"
             }
         }
     }
