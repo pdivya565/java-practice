@@ -20,12 +20,12 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh "javac App.java"
+                javac App.java
             }
         }
         stage('Run') {
             steps {
-                sh "java App"
+                java App
             }
         }
     }
